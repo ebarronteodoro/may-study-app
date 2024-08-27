@@ -6,13 +6,13 @@ const WelcomeScreen = ({ onEnter, savedMethods, onLoadMethod, onDeleteMethod, th
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className={`flex flex-col items-center justify-center min-h-screen ${
+    className={`flex flex-col items-center justify-center min-h-dvh ${
       theme === 'light'
         ? 'bg-gradient-to-br from-blue-100 via-white to-purple-100'
         : 'bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900'
     }`}
   >
-    <h1 className="text-5xl font-bold mb-8 text-gray-800 dark:text-white">Bienvenido a tu Estudio</h1>
+    <h1 className="text-5xl font-bold mb-8 text-gray-800 text-center dark:text-white">Bienvenido a tu Estudio</h1>
     <button
       onClick={onEnter}
       className="mb-8 px-8 py-3 bg-blue-500 text-white text-lg rounded-full hover:bg-blue-600 transition-colors shadow-lg"
@@ -146,18 +146,18 @@ const CornellPomodoro = ({ initialTitle, initialNotes, initialTimers, onSave, on
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
+    <div className={`min-h-dvh transition-colors duration-300 ${
       theme === 'light'
         ? 'bg-gradient-to-br from-blue-50 via-white to-purple-50'
         : 'bg-gradient-to-br from-gray-900 via-purple-950 to-gray-900'
     }`}>
       <div className="container mx-auto p-4">
-        <header className="flex justify-between items-center mb-8">
+        <header className="flex justify-between flex-wrap items-center mb-8 gap-3">
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="text-3xl font-bold bg-transparent border-b border-gray-300 dark:border-gray-700 focus:outline-none focus:border-blue-500 text-gray-800 dark:text-white"
+            className="text-3xl font-bold bg-transparent border-b w-full border-gray-300 dark:border-gray-700 focus:outline-none focus:border-blue-500 text-gray-800 dark:text-white"
           />
           <div className="flex items-center space-x-4">
             <button
@@ -306,7 +306,7 @@ export default function CornellPomodoroApp() {
   }, [theme]);
 
   const handleEnter = () => {
-    setCurrentMethod({ title: 'Nuevo Método Cornell con Pomodoro', notes: {}, timers: [] });
+    setCurrentMethod({ title: 'Nuevo Estudio', notes: {}, timers: [] });
     setShowWelcome(false);
   };
 
